@@ -1,7 +1,8 @@
 const modes = {
   of: {
+    question: 'What is 20% of 250?',
     fields: [
-      { id: 'percent', label: 'Percentage', placeholder: '20', suffix: '%' },
+      { id: 'percent', label: 'Percent', placeholder: '20' },
       { id: 'number', label: 'Number', placeholder: '250' }
     ],
     calculate: ({ percent, number }) => ({
@@ -10,47 +11,50 @@ const modes = {
     })
   },
   whatPercent: {
+    question: '50 is what percent of 250?',
     fields: [
       { id: 'part', label: 'First number', placeholder: '50' },
       { id: 'whole', label: 'Second number', placeholder: '250' }
     ],
     calculate: ({ part, whole }) => {
-      if (whole === 0) throw new Error('The second number cannot be zero.');
+      if (whole === 0) throw new Error('Second number cannot be 0.');
       return {
         value: (part / whole) * 100,
         suffix: '%',
-        detail: `${formatNumber(part)} is this percentage of ${formatNumber(whole)}`
+        detail: `${formatNumber(part)} out of ${formatNumber(whole)}`
       };
     }
   },
   change: {
+    question: 'How much did the value change?',
     fields: [
       { id: 'oldValue', label: 'Old value', placeholder: '100' },
       { id: 'newValue', label: 'New value', placeholder: '125' }
     ],
     calculate: ({ oldValue, newValue }) => {
-      if (oldValue === 0) throw new Error('The old value cannot be zero.');
+      if (oldValue === 0) throw new Error('Old value cannot be 0.');
       const change = ((newValue - oldValue) / Math.abs(oldValue)) * 100;
       const direction = change > 0 ? 'increase' : change < 0 ? 'decrease' : 'no change';
       return {
         value: Math.abs(change),
         suffix: '%',
-        detail: change === 0 ? 'There is no percentage change.' : `${formatNumber(Math.abs(change))}% ${direction}`
+        detail: direction
       };
     }
   },
   discount: {
+    question: 'What is the price after discount?',
     fields: [
-      { id: 'price', label: 'Original price', placeholder: '120' },
-      { id: 'discount', label: 'Discount', placeholder: '25', suffix: '%' }
+      { id: 'price', label: 'Price', placeholder: '120' },
+      { id: 'discount', label: 'Discount %', placeholder: '25' }
     ],
     calculate: ({ price, discount }) => {
       if (price < 0) throw new Error('Price cannot be negative.');
-      if (discount < 0 || discount > 100) throw new Error('Discount must be between 0 and 100.');
+      if (discount < 0 || discount > 100) throw new Error('Discount must be 0–100.');
       const savings = price * (discount / 100);
       return {
         value: price - savings,
-        detail: `You save ${formatNumber(savings)} from the original price.`
+        detail: `You save ${formatNumber(savings)}`
       };
     }
   }
@@ -63,11 +67,13 @@ const errorMessage = document.getElementById('form-error');
 const resultPanel = document.getElementById('result');
 const resultValue = document.getElementById('result-value');
 const resultDetail = document.getElementById('result-detail');
+const modeQuestion = document.getElementById('mode-question');
 
 let activeMode = 'of';
 
 function init() {
   renderFields();
+  updateQuestion();
   modeButtons.forEach(button => button.addEventListener('click', () => setMode(button.dataset.mode)));
   form.addEventListener('submit', handleSubmit);
 }
@@ -81,9 +87,12 @@ function setMode(mode) {
     button.setAttribute('aria-selected', String(isActive));
   });
   clearFeedback();
+  updateQuestion();
   renderFields();
-  const firstInput = fieldsContainer.querySelector('input');
-  firstInput?.focus();
+}
+
+function updateQuestion() {
+  modeQuestion.textContent = modes[activeMode].question;
 }
 
 function renderFields() {
@@ -108,14 +117,6 @@ function renderFields() {
     input.required = true;
 
     wrapper.append(label, input);
-
-    if (field.suffix) {
-      const hint = document.createElement('span');
-      hint.className = 'field-hint';
-      hint.textContent = `Enter a value in ${field.suffix === '%' ? 'percent' : field.suffix}`;
-      wrapper.append(hint);
-    }
-
     fieldsContainer.append(wrapper);
   });
 }
@@ -129,14 +130,14 @@ function handleSubmit(event) {
 
   for (const input of inputs) {
     if (input.value.trim() === '') {
-      showError('Please enter all values.');
+      showError('Enter both numbers.');
       input.focus();
       return;
     }
 
     const value = Number(input.value);
     if (!Number.isFinite(value)) {
-      showError('Please enter valid numbers.');
+      showError('Enter valid numbers.');
       input.focus();
       return;
     }
@@ -150,7 +151,7 @@ function handleSubmit(event) {
     resultPanel.hidden = false;
     resultPanel.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth', block: 'nearest' });
   } catch (error) {
-    showError(error.message || 'Unable to calculate. Check your values.');
+    showError(error.message || 'Check the numbers.');
   }
 }
 
@@ -169,9 +170,7 @@ function clearFeedback() {
 function formatNumber(value) {
   if (!Number.isFinite(value)) return '0';
   const rounded = Math.abs(value) < 1e-12 ? 0 : value;
-  return new Intl.NumberFormat('en-US', {
-    maximumFractionDigits: 6
-  }).format(rounded);
+  return new Intl.NumberFormat('en-US', { maximumFractionDigits: 6 }).format(rounded);
 }
 
 function prefersReducedMotion() {
