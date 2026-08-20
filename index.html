@@ -107,7 +107,10 @@
   <script>
     document.getElementById('home-brand').addEventListener('click', function (event) {
       event.preventDefault();
-      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+      history.replaceState(null, '', window.location.pathname + window.location.search);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+      window.scrollTo(0, 0);
     });
   </script>
 </body>
