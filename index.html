@@ -15,7 +15,7 @@
 
   <header class="site-header">
     <div class="shell header-inner">
-      <a class="brand" href="#top" aria-label="Percentage Calculator home">
+      <a class="brand" href="#" id="home-brand" aria-label="Percentage Calculator home">
         <span class="brand-mark">%</span>
         <span>Percentage Calculator</span>
       </a>
@@ -104,5 +104,11 @@
   </footer>
 
   <script src="app.js"></script>
+  <script>
+    document.getElementById('home-brand').addEventListener('click', function (event) {
+      event.preventDefault();
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    });
+  </script>
 </body>
 </html>
