@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#7c3aed">
+  <meta name="description" content="Free percentage calculator for percentages, percentage change, discounts, and finding what percent one number is of another.">
+  <meta name="robots" content="index, follow">
+  <title>Percentage Calculator – Calculate Percentages Instantly</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="#top" aria-label="Percentage Calculator home">
+        <span class="brand-mark">%</span>
+        <span>Percentage Calculator</span>
+      </a>
+      <a class="header-link" href="#how-it-works">How it works</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero shell">
+      <div class="hero-copy">
+        <p class="eyebrow">Fast · Free · Easy</p>
+        <h1>Percentage Calculator</h1>
+        <p class="hero-text">Calculate percentages, changes and discounts instantly.</p>
+      </div>
+
+      <div class="ad-slot ad-slot-top" aria-label="Advertisement space">
+        <span>Advertisement</span>
+      </div>
+
+      <section class="calculator-card" aria-labelledby="calculator-title">
+        <div class="calculator-heading">
+          <div>
+            <p class="section-eyebrow">Choose a calculation</p>
+            <h2 id="calculator-title">What do you want to calculate?</h2>
+          </div>
+          <span class="spark" aria-hidden="true">✦</span>
+        </div>
+
+        <div class="mode-grid" role="tablist" aria-label="Percentage calculation type">
+          <button class="mode-btn active" type="button" data-mode="of" role="tab" aria-selected="true">
+            <span class="mode-icon">%</span>
+            <span>X% of Y</span>
+          </button>
+          <button class="mode-btn" type="button" data-mode="whatPercent" role="tab" aria-selected="false">
+            <span class="mode-icon">÷</span>
+            <span>X is what % of Y?</span>
+          </button>
+          <button class="mode-btn" type="button" data-mode="change" role="tab" aria-selected="false">
+            <span class="mode-icon">↗</span>
+            <span>% Change</span>
+          </button>
+          <button class="mode-btn" type="button" data-mode="discount" role="tab" aria-selected="false">
+            <span class="mode-icon">🏷</span>
+            <span>Discount</span>
+          </button>
+        </div>
+
+        <form id="calculator-form" novalidate>
+          <div id="fields" class="form-grid"></div>
+          <p id="form-error" class="error-message" role="alert" aria-live="polite"></p>
+          <button class="btn-primary" type="submit">Calculate Now</button>
+        </form>
+
+        <div id="result" class="result-panel" aria-live="polite" hidden>
+          <p class="result-label">Your result</p>
+          <strong id="result-value">0</strong>
+          <p id="result-detail" class="result-detail"></p>
+        </div>
+      </section>
+    </section>
+
+    <section class="shell content-section" id="how-it-works">
+      <div class="ad-slot" aria-label="Advertisement space">
+        <span>Advertisement</span>
+      </div>
+
+      <div class="info-grid">
+        <article class="info-card">
+          <span class="info-icon" aria-hidden="true">⚡</span>
+          <h3>Instant answers</h3>
+          <p>Enter your numbers and get a clear result immediately.</p>
+        </article>
+        <article class="info-card">
+          <span class="info-icon" aria-hidden="true">🧮</span>
+          <h3>Four useful tools</h3>
+          <p>Calculate a percentage, ratio, change, or discount in one place.</p>
+        </article>
+        <article class="info-card">
+          <span class="info-icon" aria-hidden="true">📱</span>
+          <h3>Works anywhere</h3>
+          <p>Designed for quick use on phones, tablets and computers.</p>
+        </article>
+      </div>
+
+      <article class="guide-card">
+        <p class="section-eyebrow">Simple formulas</p>
+        <h2>How percentage calculations work</h2>
+        <div class="formula-grid">
+          <div><strong>Find X% of Y</strong><span>(X ÷ 100) × Y</span></div>
+          <div><strong>Find what percent X is of Y</strong><span>(X ÷ Y) × 100</span></div>
+          <div><strong>Percentage change</strong><span>((New − Old) ÷ Old) × 100</span></div>
+          <div><strong>Discounted price</strong><span>Price × (1 − Discount ÷ 100)</span></div>
+        </div>
+      </article>
+
+      <section class="faq-card" aria-labelledby="faq-title">
+        <p class="section-eyebrow">Quick answers</p>
+        <h2 id="faq-title">FAQ</h2>
+        <details>
+          <summary>How do I calculate 20% of 250?</summary>
+          <p>Multiply 250 by 0.20. The result is 50.</p>
+        </details>
+        <details>
+          <summary>How do I calculate a percentage increase?</summary>
+          <p>Subtract the old value from the new value, divide by the old value, then multiply by 100.</p>
+        </details>
+        <details>
+          <summary>Can I calculate a sale price?</summary>
+          <p>Yes. Choose Discount, enter the original price and discount percentage, and the calculator shows the final price and savings.</p>
+        </details>
+      </section>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <span>Percentage Calculator</span>
+      <span>Fast, simple percentage calculations.</span>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
