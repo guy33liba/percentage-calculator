@@ -89,6 +89,7 @@ function setMode(mode) {
   clearFeedback();
   updateQuestion();
   renderFields();
+  window.scrollTo({ top: 0, behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
 }
 
 function updateQuestion() {
