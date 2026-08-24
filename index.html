@@ -24,97 +24,34 @@
 
   <main id="top">
     <section class="hero shell">
-      <div class="hero-copy">
-        <h1>Percentage Calculator</h1>
-        <p class="hero-text">Pick a calculation. Enter 2 numbers.</p>
-      </div>
-
-      <div class="ad-slot ad-slot-top" aria-label="Advertisement space">
-        <span>Advertisement</span>
-      </div>
-
+      <div class="hero-copy"><h1>Percentage Calculator</h1><p class="hero-text">Pick a calculation. Enter 2 numbers.</p></div>
+      <div class="ad-slot ad-slot-top" aria-label="Advertisement space"><span>Advertisement</span></div>
       <section class="calculator-card" aria-labelledby="calculator-title">
-        <div class="calculator-heading">
-          <div>
-            <p class="section-eyebrow">Step 1</p>
-            <h2 id="calculator-title">What do you want?</h2>
-          </div>
-        </div>
-
+        <div class="calculator-heading"><div><p class="section-eyebrow">Step 1</p><h2 id="calculator-title">What do you want?</h2></div></div>
         <div class="mode-grid" role="tablist" aria-label="Percentage calculation type">
-          <button class="mode-btn active" type="button" data-mode="of" role="tab" aria-selected="true">
-            <span class="mode-icon">%</span>
-            <span>Percent of a number</span>
-          </button>
-          <button class="mode-btn" type="button" data-mode="whatPercent" role="tab" aria-selected="false">
-            <span class="mode-icon">÷</span>
-            <span>What percent?</span>
-          </button>
-          <button class="mode-btn" type="button" data-mode="change" role="tab" aria-selected="false">
-            <span class="mode-icon">↗</span>
-            <span>Increase / decrease</span>
-          </button>
-          <button class="mode-btn" type="button" data-mode="discount" role="tab" aria-selected="false">
-            <span class="mode-icon">🏷</span>
-            <span>Discount price</span>
-          </button>
+          <button class="mode-btn active" type="button" data-mode="of" role="tab" aria-selected="true"><span class="mode-icon">%</span><span>Percent of a number</span></button>
+          <button class="mode-btn" type="button" data-mode="whatPercent" role="tab" aria-selected="false"><span class="mode-icon">÷</span><span>What percent?</span></button>
+          <button class="mode-btn" type="button" data-mode="change" role="tab" aria-selected="false"><span class="mode-icon">↗</span><span>Increase / decrease</span></button>
+          <button class="mode-btn" type="button" data-mode="discount" role="tab" aria-selected="false"><span class="mode-icon">🏷</span><span>Discount price</span></button>
         </div>
-
         <form id="calculator-form" novalidate>
-          <div class="calculator-heading simple-heading">
-            <div>
-              <p class="section-eyebrow">Step 2</p>
-              <h2 id="mode-question">What is 20% of 250?</h2>
-            </div>
-          </div>
+          <div class="calculator-heading simple-heading"><div><p class="section-eyebrow">Step 2</p><h2 id="mode-question">What is 20% of 250?</h2></div></div>
           <div id="fields" class="form-grid"></div>
           <p id="form-error" class="error-message" role="alert" aria-live="polite"></p>
           <button class="btn-primary" type="submit">Calculate</button>
         </form>
-
-        <div id="result" class="result-panel" aria-live="polite" hidden>
-          <p class="result-label">Answer</p>
-          <strong id="result-value">0</strong>
-          <p id="result-detail" class="result-detail"></p>
-        </div>
+        <div id="result" class="result-panel" aria-live="polite" hidden><p class="result-label">Answer</p><strong id="result-value">0</strong><p id="result-detail" class="result-detail"></p></div>
       </section>
     </section>
 
     <section class="shell content-section" id="how-it-works">
-      <div class="ad-slot" aria-label="Advertisement space">
-        <span>Advertisement</span>
-      </div>
-
-      <article class="guide-card">
-        <h2>Examples</h2>
-        <div class="formula-grid">
-          <div><strong>20% of 250</strong><span>50</span></div>
-          <div><strong>50 of 250</strong><span>20%</span></div>
-          <div><strong>100 → 125</strong><span>25% increase</span></div>
-          <div><strong>25% off 120</strong><span>90</span></div>
-        </div>
-      </article>
-
-      <article class="guide-card" aria-labelledby="more-tools-title">
-        <h2 id="more-tools-title">More Free Tools</h2>
-        <p>
-          <a href="https://appointments-schedule.netlify.app/">Appointment Scheduler</a> ·
-          <a href="https://keywordcalculator.netlify.app/">Keyword Calculator</a> ·
-          <a href="https://electric-calc.netlify.app/dist/index.html">Electricity Calculator</a> ·
-          <a href="https://qr-code222.netlify.app/">QR Code Generator</a> ·
-          <a href="https://case-converter222.netlify.app/">Case Converter</a> ·
-          <a href="https://picture-compression.netlify.app/">Image Compressor</a>
-        </p>
-      </article>
+      <div class="ad-slot" aria-label="Advertisement space"><span>Advertisement</span></div>
+      <article class="guide-card"><h2>Examples</h2><div class="formula-grid"><div><strong>20% of 250</strong><span>50</span></div><div><strong>50 of 250</strong><span>20%</span></div><div><strong>100 → 125</strong><span>25% increase</span></div><div><strong>25% off 120</strong><span>90</span></div></div></article>
+      <article class="guide-card" aria-labelledby="more-tools-title"><h2 id="more-tools-title">More Free Tools</h2><p><a href="https://appointments-schedule.netlify.app/">Appointment Scheduler</a> · <a href="https://keywordcalculator.netlify.app/">Keyword Calculator</a> · <a href="https://electric-calc.netlify.app/dist/index.html">Electricity Calculator</a> · <a href="https://qr-code222.netlify.app/">QR Code Generator</a> · <a href="https://case-converter222.netlify.app/">Case Converter</a> · <a href="https://picture-compression.netlify.app/">Image Compressor</a></p></article>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="shell footer-inner">
-      <span>Percentage Calculator</span>
-    </div>
-  </footer>
-
+  <footer class="site-footer"><div class="shell footer-inner"><span>Percentage Calculator</span></div></footer>
   <script src="app.js"></script>
   <script>
     document.getElementById('home-brand').addEventListener('click', function (event) {
@@ -125,5 +62,6 @@
       window.scrollTo(0, 0);
     });
   </script>
+  <script src="https://appointments-schedule.netlify.app/tools-widget.js"></script>
 </body>
 </html>
